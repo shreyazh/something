@@ -1,0 +1,28 @@
+---
+import Layout from './Layout.astro';
+import PoemCard from '../components/PoemCard.astro';
+import { poems } from '../data/poems';
+import '../styles/poetry.css';
+
+interface Props {
+  title: string;
+  category: string;
+}
+
+const { title, category } = Astro.props;
+const categoryPoems = poems[category];
+---
+
+<Layout title={`${title} | Poetry for Ishu`}>
+  <main>
+    <h1>{title.split(' ').map((word, i) => 
+      i === 1 ? <span class="text-gradient">{word}</span> : word + ' '
+    )}</h1>
+    <div class="poems">
+      {categoryPoems.map(poem => (
+        <PoemCard {...poem} />
+      ))}
+    </div>
+    <a href="/" class="back-link">← Back to Categories</a>
+  </main>
+</Layout>

@@ -1,0 +1,137 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CategoryCard from '../components/CategoryCard.astro';
+
+const categories = [
+  {
+    href: "/eternal-love",
+    title: "Eternal Love",
+    description: "Poems about our timeless connection"
+  },
+  {
+    href: "/sweet-memories",
+    title: "Sweet Memories",
+    description: "Verses about our precious moments"
+  },
+  {
+    href: "/future-dreams",
+    title: "Future Dreams",
+    description: "Poetry about our beautiful tomorrow"
+  },
+  {
+    href: "/our-life",
+    title: "Our Life",
+    description: "Poems about our married life together"
+  }
+];
+---
+
+<Layout title="Poetry for Ishu | By Shreyash">
+  <main>
+    <div class="heart-container">
+      <div class="heart"></div>
+    </div>
+    <h1>Poetry for <span class="text-gradient">Ishu</span></h1>
+    <p class="subtitle">A collection of love poems by Shreyash</p>
+    
+    <div class="poetry-box">
+      <div class="categories">
+        {categories.map(category => (
+          <CategoryCard {...category} />
+        ))}
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 2rem;
+    width: 900px;
+    max-width: calc(100% - 2rem);
+    color: white;
+    font-size: 20px;
+    line-height: 1.6;
+  }
+
+  .heart-container {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .heart {
+    display: inline-block;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background-color: rgb(var(--accent-light));
+    transform: rotate(45deg);
+    animation: heartbeat 1.5s ease-in-out infinite;
+  }
+
+  .heart::before,
+  .heart::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: rgb(var(--accent-light));
+    border-radius: 50%;
+  }
+
+  .heart::before {
+    left: -20px;
+  }
+
+  .heart::after {
+    top: -20px;
+  }
+
+  @keyframes heartbeat {
+    0% { transform: rotate(45deg) scale(1); }
+    25% { transform: rotate(45deg) scale(1.1); }
+    50% { transform: rotate(45deg) scale(1); }
+    75% { transform: rotate(45deg) scale(1.1); }
+    100% { transform: rotate(45deg) scale(1); }
+  }
+
+  h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 0.5em;
+    text-shadow: 0 0 10px rgba(var(--accent-light), 0.3);
+  }
+
+  .subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    color: rgb(var(--accent-light));
+    font-style: italic;
+  }
+
+  .poetry-box {
+    background: rgba(var(--accent-dark), 0.3);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 0 20px rgba(var(--accent-light), 0.1);
+    border: 1px solid rgba(var(--accent-light), 0.1);
+    backdrop-filter: blur(10px);
+  }
+
+  .categories {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    padding: 0;
+  }
+
+  @media (max-width: 768px) {
+    .categories {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

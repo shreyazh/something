@@ -1,0 +1,57 @@
+/* Shared styles for poetry pages */
+main {
+	margin: auto;
+	padding: 2rem;
+	width: 800px;
+	max-width: calc(100% - 2rem);
+	color: white;
+	font-size: 20px;
+	line-height: 1.6;
+}
+
+h1 {
+	font-size: 3rem;
+	text-align: center;
+	margin-bottom: 2rem;
+}
+
+.text-gradient {
+	background-image: var(--accent-gradient);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-size: 400%;
+	background-position: 0%;
+}
+
+.poems {
+	display: grid;
+	gap: 2rem;
+}
+
+.poem {
+	padding: 2rem;
+	border-radius: 8px;
+	background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
+	border: 1px solid rgba(var(--accent-light), 25%);
+}
+
+.poem h2 {
+	color: rgb(var(--accent-light));
+	margin: 0 0 1rem 0;
+}
+
+.poem p {
+	margin: 0;
+	line-height: 1.8;
+}
+
+.back-link {
+	display: inline-block;
+	margin-top: 2rem;
+	color: rgb(var(--accent-light));
+	text-decoration: none;
+}
+
+.back-link:hover {
+	text-decoration: underline;
+}
